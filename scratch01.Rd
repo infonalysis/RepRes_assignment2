@@ -36,7 +36,8 @@ injury_by_ev <- tapply(data_good_ev[!is.na(data_good_ev$INJURIES),]$INJURIES, da
 
 # merge these tables & graph
 health_risks <- rbind(t(fatal_by_ev), t(injury_by_ev))
-
+par(las=2)
+barplot(health_risks, main="Injuries and Fatalities by Weather Event", xlab="Number of Health Impacts", col=c("darkblue","red"), legend = rownames(health_risks), horiz=T, cex.names=0.8)
 
 
 #
