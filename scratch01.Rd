@@ -1,4 +1,6 @@
-setwd("~/Documents/School/Coursera/reproducible_research/RepData_PeerAssessment2/RepRes_assignment2")
+#setwd("~/Documents/School/Coursera/reproducible_research/RepData_PeerAssessment2/RepRes_assignment2")
+setwd("C:\Users\rupert\Documents\GitHub\RepRes_assignment2")
+
 library("data.table")
 
 #
@@ -7,6 +9,7 @@ library("data.table")
 
 # read in full csv
 data_orig <- read.table("repdata_data_StormData.csv.bz2", header=T, sep = ",", stringsAsFactors=F)
+
 
 # set allowed values for EVTYPE
 allowed_evtypes <- as.factor(c("astronomical low tide", "avalanche", "blizzard", "coastal flood", "cold/wind chill", "debris flow", "dense fog", "dense smoke", "drought", "dust devil", "dust storm", "excessive heat", "extreme cold/wind chill", "flash flood", "flood", "frost/freeze", "funnel cloud", "freezing fog", "hail", "heat", "heavy rain", "heavy snow", "high surf", "high wind", "hurricane (typhoon)", "ice storm", "lake-effect snow", "lakeshore flood", "lightning", "marine hail", "marine high wind", "marine strong wind", "marine thunderstorm wind", "rip current", "seiche", "sleet", "storm surge/tide", "strong wind", "thunderstorm wind", "tornado", "tropical depression", "tropical storm", "tsunami", "volcanic ash", "waterspout", "wildfire", "winter storm", "winter weather"))
@@ -43,6 +46,10 @@ barplot(health_risks, main="Injuries and Fatalities by Weather Event", xlab="Num
 #
 # 2. Across the United States, which types of events have the greatest economic consequences?
 #
+
+# need to use PROPDMG and CROPDMG
+# (PROP|CROP)DMGEXP contains multiplier
+# Multiplier Key: "K" for thousands, "M" for millions, and "B" for billions
 
 
 
