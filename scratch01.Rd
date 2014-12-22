@@ -1,5 +1,5 @@
 #setwd("~/Documents/School/Coursera/reproducible_research/RepData_PeerAssessment2/RepRes_assignment2")
-setwd("C:\Users\rupert\Documents\GitHub\RepRes_assignment2")
+setwd("C:\\Users\\rupert\\Documents\\GitHub\\RepRes_assignment2")
 
 library("data.table")
 
@@ -50,11 +50,12 @@ barplot(health_risks, main="Injuries and Fatalities by Weather Event", xlab="Num
 # need to use PROPDMG and CROPDMG
 # (PROP|CROP)DMGEXP contains multiplier
 # Multiplier Key: "K" for thousands, "M" for millions, and "B" for billions
+# fix up these fields to contain helpful values
 
+multiplier <- c(1000,1000000,1000000000)
 
-
-
-
+data_good_ev$PROPDMG <- data_good_ev$PROPDMG* multiplier[match(data_good_ev$PROPDMGEXP, c("K","M","B"))]
+data_good_ev$CROPDMG <- data_good_ev$PROPDMG* multiplier[match(data_good_ev$CROPDMGEXP, c("K","M","B"))]
 
 
 
